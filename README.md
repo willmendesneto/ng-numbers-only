@@ -35,8 +35,9 @@ Once you have ng-numbers-only in your project, just include 'keepr.ngNumbersOnly
 
 ## Example
 
-```javascript
-```
+You can access this plunker with a live Example
+
+http://embed.plnkr.co/P5hoQ2/
 
 ## Author
 
