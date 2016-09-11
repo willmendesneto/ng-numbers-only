@@ -54,6 +54,19 @@ describe('numbersOnly', function() {
       });
     });
 
+    describe('When is a scientific notation number is pasted in the field', function() {
+      beforeEach(function() {
+        element = compileElement();
+        ngModel.$setViewValue('9.e3');
+        element.triggerHandler('blur');
+        rootScope.$digest();
+      });
+
+      it('should transform the value to the accepted format', function() {
+        expect(element.val()).toBe('9000');
+      });
+    });
+
     describe('When is a number with more than 2 decimal values', function() {
       beforeEach(function() {
         element = compileElement();

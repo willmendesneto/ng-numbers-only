@@ -36,7 +36,11 @@ angular.module('keepr.ngNumbersOnly')
           return null;
         }
 
-        inputValue.toString().match(/-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?/g).join('');
+        inputValue = inputValue.toString().match(/-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?/g).join('');
+
+        if (inputValue.match(/(e|E|-|\+)/) ) {
+          inputValue = parseFloat(parseFloat(inputValue).toFixed(20).replace(/0+$/,'')).toFixed(2);
+        }
 
         if (!!currencyDigitPrecision && currencyDigitLengthIsInvalid(inputValue)) {
           inputValue = parseFloat(inputValue).toFixed(currencyDigitPrecision);
@@ -52,7 +56,7 @@ angular.module('keepr.ngNumbersOnly')
         return isANumberEventKeycode || isACommaEventKeycode || isADotEventKeycode;
       };
 
-      element.on('keypress', function(evt) {
+      var onKeypressEventHandler = function(evt) {
 
         var charCode = String.fromCharCode(evt.which || event.keyCode);
 
@@ -70,7 +74,14 @@ angular.module('keepr.ngNumbersOnly')
         }
 
         return isAnAcceptedCase;
-      });
+      };
+
+      var onBlurEventHandler = function() {
+        modelCtrl.$render(modelCtrl.$viewValue);
+      };
+
+      element.on('keypress', onKeypressEventHandler);
+      element.on('blur', onBlurEventHandler);
 
       modelCtrl.$render = function(inputValue) {
         return element.val(parseNumber(inputValue));
