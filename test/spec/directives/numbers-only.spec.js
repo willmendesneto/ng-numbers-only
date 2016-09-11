@@ -81,5 +81,37 @@ describe('numbersOnly', function() {
         expect(element.val()).toBe('53.51');
       });
     });
+
+    describe('When input number is an integer', function() {
+      beforeEach(function() {
+        element = compileElement();
+        window.event = {keyCode: 49};
+        spyOn(String, 'fromCharCode').and.returnValue('0');
+        ngModel.$setViewValue('53');
+        element.triggerHandler('keypress');
+        rootScope.$digest();
+      });
+
+      it('should show number without decimal values', function() {
+        expect(element.val()).toBe('53');
+      });
+    });
+
+    describe('When input is empty', function() {
+      beforeEach(function() {
+        element = compileElement();
+        window.event = {keyCode: 49};
+        spyOn(String, 'fromCharCode').and.returnValue('');
+        ngModel.$setViewValue('');
+        element.triggerHandler('keypress');
+        rootScope.$digest();
+      });
+
+      it('should return an empty string', function() {
+        expect(element.val()).toBe('');
+      });
+    });
+
+
   });
 });
