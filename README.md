@@ -32,12 +32,40 @@ Once you have ng-numbers-only in your project, just include 'keepr.ngNumbersOnly
     angular.module('myModule', ['keepr.ngNumbersOnly'])
 ```
 
+4 - Configurations
+
+This directive accepts some configurations, such as:
+
+- `precision`: integer with float value to be used in [`toFixed()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+
+## FAQ
+
+> Why the component doesn't have support to accept scientific notation/exponential values?
+
+Because by default since April 2015 AngularJS supports exponential values/scientific notation in ngModel. More details in [https://github.com/angular/angular.js/issues/11602](https://github.com/angular/angular.js/issues/11602)
 
 ## Example
 
-You can access this plunker with a live Example
+You can access this plunker with a live Example.
+
+```javascript
+
+angular.module('ngNumbersOnly', [
+  'keepr.ngNumbersOnly' // Loading `keepr.ngNumbersOnly` component in your application
+])
+.controller('ngNumbersOnly', function() {
+  this.value = 10;
+});
+```
+
+```html
+<input type="number" numbers-only precision="2" ng-model="value" step="0.10" min="0" />
+```
+
+PS: You should have a `ngModel` in your input to use this component.
 
 http://embed.plnkr.co/P5hoQ2/
+
 
 ## Author
 
@@ -46,5 +74,7 @@ http://embed.plnkr.co/P5hoQ2/
 + <https://twitter.com/willmendesneto>
 + <http://github.com/willmendesneto>
 
+
+Please [create a new issue](https://github.com/willmendesneto/ng-numbers-only/issues) if you like to add a new feature in the component.
 
 New features comming soon.
