@@ -16,7 +16,7 @@
     "dist/scripts",
     "test"
   ],
-  "main": "dist/ngOfflineModel.js",
+  "main": "dist/ng-numbers-only.js",
   "license": "MIT",
   "description": "NG Numbers Only",
   "homepage": "https://github.com/willmendesneto/ng-numbers-only",
