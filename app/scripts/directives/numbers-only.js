@@ -52,14 +52,24 @@ angular.module('keepr.ngNumbersOnly')
         return isANumberEventKeycode || isACommaEventKeycode || isADotEventKeycode;
       };
 
-      var onKeypressEventHandler = function(evt) {
+      var isAnAcceptedKeyboardCodeCase = function(eventKeyboardCode) {
+        return [
+          8 // backspace
+        ].indexOf(eventKeyboardCode) !== -1;
+      };
 
-        var charCode = String.fromCharCode(evt.which || event.keyCode);
+      var isAnAcceptedInputCase = function(eventKeyboardCode) {
+        var charCode = String.fromCharCode(eventKeyboardCode);
+        return isAnAcceptedEventCharCodeCase(charCode) || isAnAcceptedKeyboardCodeCase(eventKeyboardCode);
+      };
+
+      var onKeypressEventHandler = function(evt) {
+        var eventKeyboardCode = evt.which || event.keyCode;
 
         var forceRenderComponent = false;
         forceRenderComponent = currencyDigitLengthIsInvalid(modelCtrl.$viewValue);
 
-        var isAnAcceptedCase = isAnAcceptedEventCharCodeCase(charCode);
+        var isAnAcceptedCase = isAnAcceptedInputCase(eventKeyboardCode);
 
         if (!isAnAcceptedCase) {
           evt.preventDefault();
