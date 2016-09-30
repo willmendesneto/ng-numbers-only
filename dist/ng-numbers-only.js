@@ -15,14 +15,14 @@ angular.module('keepr.ngNumbersOnly')
       var currencyDigitPrecision = scope.precision;
 
       var countDecimalLength = function (number) {
-         var str = '' + number;
-         var index = str.indexOf('.');
-         if (index >= 0) {
-           return str.length - index - 1;
+         var decimals = number.toString().split('.')[1];
+         if (decimals) {
+           return decimals.length;
          } else {
            return 0;
          }
       };
+
 
       var currencyDigitLengthIsInvalid = function(inputValue) {
         if (!inputValue) {
