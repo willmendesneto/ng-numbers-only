@@ -72,13 +72,17 @@ describe('numbersOnly', function() {
         element = compileElement();
         window.event = {keyCode: 49};
         spyOn(String, 'fromCharCode').and.returnValue('2');
-        ngModel.$setViewValue('53.5123');
+        ngModel.$setViewValue('53.516');
         element.triggerHandler('keypress');
         rootScope.$digest();
       });
 
       it('should accept only numbers', function() {
         expect(element.val()).toBe('53.51');
+      });
+
+      it('should NOT round the given number', function() {
+        expect(element.val()).not.toBe('53.52');
       });
     });
 

@@ -36,14 +36,16 @@ angular.module('keepr.ngNumbersOnly')
           return null;
         }
 
+        // This is required because input numbers can accept exponential numbers
+        // more details about this issue on https://codereview.chromium.org/1587103003
         inputValue = inputValue.toString().match(/-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?/g).join('');
 
         if (inputValue.match(/(e|E|-|\+)/) ) {
-          inputValue = parseFloat(parseFloat(inputValue).toFixed(20).replace(/0+$/,'')).toFixed(2);
+          inputValue = parseFloat(parseFloat(inputValue).toFixed(20).replace(/0+$/,'')).slice(0, -(20 - currencyDigitPrecision));
         }
 
         if (!!currencyDigitPrecision && currencyDigitLengthIsInvalid(inputValue)) {
-          inputValue = parseFloat(inputValue).toFixed(currencyDigitPrecision);
+          inputValue = parseFloat(inputValue).toFixed(20).slice(0, -(20 - currencyDigitPrecision));
           modelCtrl.$viewValue = inputValue;
         }
         return inputValue;
