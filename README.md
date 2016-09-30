@@ -36,7 +36,7 @@ Once you have ng-numbers-only in your project, just include 'keepr.ngNumbersOnly
 
 This directive accepts some configurations, such as:
 
-- `precision`: integer with float value to be used in [`toFixed()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+- `precision`: integer with float value to be used to fix the decimal precision. [`toFixed()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) is not being used anymore because it calls [`Math.round` method](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/round) internally.
 
 ## FAQ
 
