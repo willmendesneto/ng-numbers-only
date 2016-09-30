@@ -67,6 +67,19 @@ describe('numbersOnly', function() {
       });
     });
 
+    describe('When the given field value is a float number', function() {
+      beforeEach(function() {
+        element = compileElement();
+        ngModel.$setViewValue('9.1');
+        element.triggerHandler('blur');
+        rootScope.$digest();
+      });
+
+      it('should format the field value to decimals using configured precision', function() {
+        expect(element.val()).toBe('9.10');
+      });
+    });
+
     describe('When is a number with more than 2 decimal values', function() {
       beforeEach(function() {
         element = compileElement();

@@ -89,8 +89,11 @@ angular.module('keepr.ngNumbersOnly')
       };
 
       var onBlurEventHandler = function() {
-        modelCtrl.$render(modelCtrl.$viewValue);
+        modelCtrl.$render(modelCtrl.$viewValue.indexOf('.') !== -1 ?
+                          parseFloat(modelCtrl.$viewValue).toFixed(currencyDigitPrecision) :
+                          modelCtrl.$viewValue);
       };
+
 
       element.on('keypress', onKeypressEventHandler);
       element.on('blur', onBlurEventHandler);
