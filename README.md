@@ -1,5 +1,7 @@
 # ng-numbers-only
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/willmendesneto/ng-numbers-only.svg)](https://greenkeeper.io/)
+
 > NG Numbers Only - Input number in a easy way in AngularJS Apps
 
 [![Build Status](https://travis-ci.org/willmendesneto/ng-numbers-only.png?branch=master)](https://travis-ci.org/willmendesneto/ng-numbers-only)
