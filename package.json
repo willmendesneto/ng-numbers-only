@@ -22,7 +22,7 @@
     "grunt-contrib-connect": "~2.0.0",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-jshint": "~2.0.0",
-    "grunt-contrib-uglify": "~3.4.0",
+    "grunt-contrib-uglify": "~4.0.1",
     "grunt-contrib-watch": "~1.0.0",
     "grunt-html": "~10.1.0",
     "grunt-karma": "~2.0.0",
