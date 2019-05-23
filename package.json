@@ -40,7 +40,7 @@
     "karma-phantomjs-launcher": "~1.0.0",
     "karma-requirejs": "~1.1.0",
     "karma-spec-reporter": "0.0.31",
-    "load-grunt-tasks": "~3.5.0",
+    "load-grunt-tasks": "~5.0.0",
     "phantomjs-prebuilt": "^2.1.7",
     "requirejs": "~2.3.1",
     "time-grunt": "~2.0.0"
