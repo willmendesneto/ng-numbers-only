@@ -16,7 +16,7 @@
     "angular-mocks": "^1.5.5",
     "coveralls": "^2.11.6",
     "grunt": "~1.0.1",
-    "grunt-concurrent": "~2.3.0",
+    "grunt-concurrent": "~3.0.0",
     "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-connect": "~2.0.0",
