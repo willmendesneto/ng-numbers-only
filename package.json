@@ -14,7 +14,7 @@
   ],
   "devDependencies": {
     "angular-mocks": "^1.5.5",
-    "coveralls": "^2.11.6",
+    "coveralls": "^3.0.13",
     "grunt": "~1.0.1",
     "grunt-concurrent": "~2.3.0",
     "grunt-contrib-clean": "~2.0.0",
